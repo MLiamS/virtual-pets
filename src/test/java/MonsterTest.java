@@ -17,6 +17,12 @@ public class MonsterTest {
   public void Monster_instantiatesWithName_String() {
     Monster testMonster = new Monster("Bubbles", 1);
     assertEquals("Bubbles", testMonster.getName());
-}
+  }
+
+  @Test
+  public void Monster_instantiatesWithPersonId_int() {
+    Monster testMonster = new Monster("Bubbles", 1);
+    assertEquals(1, testMonster.getPersonId());
+  }
 
 }

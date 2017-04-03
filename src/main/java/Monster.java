@@ -12,5 +12,8 @@ public class Monster {
     return name;
   }
 
+  public int getPersonId(){
+   return personId;
+ }
 
 }
