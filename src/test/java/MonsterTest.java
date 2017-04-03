@@ -155,7 +155,15 @@ public class MonsterTest {
     Monster testMonster = new Monster("Bubbles", 1);
     for(int i = Monster.MIN_ALL_LEVELS; i <= (Monster.MAX_FOOD_LEVEL); i++){
       testMonster.feed();
+    }
   }
-}
+
+  @Test(expected = UnsupportedOperationException.class)
+    public void play_throwsExceptionIfPlayLevelIsAtMaxValue(){
+    Monster testMonster = new Monster("Bubbles", 1);
+    for(int i = Monster.MIN_ALL_LEVELS; i <= (Monster.MAX_PLAY_LEVEL); i++){
+      testMonster.play();
+    }
+  }
 
 }

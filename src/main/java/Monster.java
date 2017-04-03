@@ -102,6 +102,9 @@ public void save() {
   }
 
   public void play(){
+    if (playLevel >= MAX_PLAY_LEVEL) {
+      throw new UnsupportedOperationException("You cannot play with your monster anymore!");
+    }
    playLevel++;
  }
 
