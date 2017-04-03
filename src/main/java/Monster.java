@@ -110,6 +110,9 @@ public void save() {
   }
 
   public void feed(){
+    if (foodLevel >= MAX_FOOD_LEVEL) {
+      throw new UnsupportedOperationException("You cannot feed your monster anymore!");
+    }
    foodLevel++;
  }
 
