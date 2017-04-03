@@ -19,11 +19,12 @@ public class Monster {
     this.name = name;
     this.personId = personId;
     playLevel = MAX_PLAY_LEVEL / 2;
-    sleepLevel = MAX_SLEEP_LEVEL /2;
-  }
+    sleepLevel = MAX_SLEEP_LEVEL / 2;
+    foodLevel = MAX_FOOD_LEVEL / 2;
+}
 
   @Override
-  public boolean equals(Object otherMonster) {
+  public boolean equals(Object otherMonster){
     if (!(otherMonster instanceof Monster)) {
       return false;
     } else {
@@ -53,6 +54,10 @@ public class Monster {
     return sleepLevel;
   }
 
+  public int getFoodLevel(){
+  return foodLevel;
+}
+
 public void save() {
    try(Connection con = DB.sql2o.open()) {
      String sql = "INSERT INTO monsters (name, personid) VALUES (:name, :personId)";
@@ -79,5 +84,6 @@ public void save() {
       .executeAndFetchFirst(Monster.class);
     return monster;
   }
+
 }
 }
