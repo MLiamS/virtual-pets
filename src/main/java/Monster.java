@@ -84,6 +84,22 @@ public void save() {
       .executeAndFetchFirst(Monster.class);
     return monster;
   }
-
 }
+
+  public boolean isAlive() {
+    if (foodLevel <= MIN_ALL_LEVELS ||
+    playLevel <= MIN_ALL_LEVELS ||
+    sleepLevel <= MIN_ALL_LEVELS) {
+      return false;
+    }
+    return true;
+  }
+
+  // public void depleteLevels(){
+  //   playLevel--;
+  //   foodLevel--;
+  //   sleepLevel--;
+  // }
+
+
 }
