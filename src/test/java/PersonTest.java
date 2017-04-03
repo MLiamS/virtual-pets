@@ -41,7 +41,7 @@ public class PersonTest {
  }
 
   @Test
-  public void find_returnsPersonWithSameId_secondPerson() {
+    public void find_returnsPersonWithSameId_secondPerson() {
     Person firstPerson = new Person("Henry", "henry@henry.com");
     firstPerson.save();
     Person secondPerson = new Person("Harriet", "harriet@harriet.com");
@@ -50,7 +50,7 @@ public class PersonTest {
   }
 
  @Test
- public void getMonsters_retrievesAllMonstersFromDatabase_monstersList() {
+   public void getMonsters_retrievesAllMonstersFromDatabase_monstersList() {
    Person testPerson = new Person("Henry", "henry@henry.com");
    testPerson.save();
    Monster firstMonster = new Monster("Bubbles", testPerson.getId());

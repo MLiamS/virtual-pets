@@ -67,13 +67,19 @@ public class MonsterTest {
   }
 
 @Test
- public void save_savesPersonIdIntoDB_true() {
-   Person testPerson = new Person("Henry", "henry@henry.com");
-   testPerson.save();
-   Monster testMonster = new Monster("Bubbles", testPerson.getId());
-   testMonster.save();
-   Monster savedMonster = Monster.find(testMonster.getId());
-   assertEquals(savedMonster.getPersonId(), testPerson.getId());
- }
+   public void save_savesPersonIdIntoDB_true() {
+     Person testPerson = new Person("Henry", "henry@henry.com");
+     testPerson.save();
+     Monster testMonster = new Monster("Bubbles", testPerson.getId());
+     testMonster.save();
+     Monster savedMonster = Monster.find(testMonster.getId());
+     assertEquals(savedMonster.getPersonId(), testPerson.getId());
+   }
+
+ @Test
+   public void monster_instantiatesWithHalfFullPlayLevel(){
+   Monster testMonster = new Monster("Bubbles", 1);
+   assertEquals(testMonster.getPlayLevel(), (Monster.MAX_PLAY_LEVEL / 2));
+   }
 
 }
