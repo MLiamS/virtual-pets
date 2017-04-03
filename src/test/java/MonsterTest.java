@@ -100,12 +100,45 @@ public class MonsterTest {
     assertEquals(true, testMonster.isAlive());
   }
 
- // @Test
- // public void depleteLevels_reducesAllLevels(){
- //   Monster testMonster = new Monster("Bubbles", 1);
- //   testMonster.depleteLevels();
- //   assertEquals(testMonster.getFoodLevel(), (Monster.MAX_FOOD_LEVEL / 2) - 1);
- //   assertEquals(testMonster.getSleepLevel(), (Monster.MAX_SLEEP_LEVEL / 2) - 1);
- //   assertEquals(testMonster.getPlayLevel(), (Monster.MAX_PLAY_LEVEL / 2) - 1);
- // }
+ @Test
+ public void depleteLevels_reducesAllLevels(){
+   Monster testMonster = new Monster("Bubbles", 1);
+   testMonster.depleteLevels();
+   assertEquals(testMonster.getFoodLevel(), (Monster.MAX_FOOD_LEVEL / 2) - 1);
+   assertEquals(testMonster.getSleepLevel(), (Monster.MAX_SLEEP_LEVEL / 2) - 1);
+   assertEquals(testMonster.getPlayLevel(), (Monster.MAX_PLAY_LEVEL / 2) - 1);
+ }
+
+ @Test
+ public void isAlive_recognizesMonsterIsDeadWHenLevelsReachMinimum_false() {
+   Monster testMonster = new Monster("Bubbles", 1);
+   for(int i = Monster.MIN_ALL_LEVELS; i <= Monster.MAX_FOOD_LEVEL; i++) {
+     testMonster.depleteLevels();
+   }
+   assertEquals(testMonster.isAlive(), false);
+ }
+
+ @Test
+ public void play_increasesMonsterPlayLevel(){
+   Monster testMonster = new Monster("Bubbles", 1);
+   testMonster.play();
+   assertTrue(testMonster.getPlayLevel() > (Monster.MAX_PLAY_LEVEL / 2));
+ }
+
+ @Test
+ public void sleep_increasesMonsterSleepLevel(){
+   Monster testMonster = new Monster("Bubbles", 1);
+   testMonster.sleep();
+   assertTrue(testMonster.getSleepLevel() > (Monster.MAX_SLEEP_LEVEL / 2));
+ }
+
+ @Test
+  public void feed_increasesMonsterFoodLevel(){
+    Monster testMonster = new Monster("Bubbles", 1);
+    testMonster.feed();
+    assertTrue(testMonster.getFoodLevel() > (Monster.MAX_FOOD_LEVEL / 2));
+  }
+
+
+
 }

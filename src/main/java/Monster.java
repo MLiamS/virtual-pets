@@ -95,11 +95,22 @@ public void save() {
     return true;
   }
 
-  // public void depleteLevels(){
-  //   playLevel--;
-  //   foodLevel--;
-  //   sleepLevel--;
-  // }
+  public void depleteLevels(){
+    playLevel--;
+    foodLevel--;
+    sleepLevel--;
+  }
 
+  public void play(){
+   playLevel++;
+ }
+
+ public void sleep(){
+    sleepLevel++;
+  }
+
+  public void feed(){
+   foodLevel++;
+ }
 
 }
