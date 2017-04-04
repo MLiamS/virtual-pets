@@ -24,14 +24,6 @@ public abstract class Monster {
   public static final int MAX_PLAY_LEVEL = 12;
   public static final int MIN_ALL_LEVELS = 0;
 
-//   public Monster(String name, int personId) {
-//     this.name = name;
-//     this.personId = personId;
-//     playLevel = MAX_PLAY_LEVEL / 2;
-//     sleepLevel = MAX_SLEEP_LEVEL / 2;
-//     foodLevel = MAX_FOOD_LEVEL / 2;
-//     timer = new Timer();
-// }
 
   @Override
   public boolean equals(Object otherMonster){
@@ -94,23 +86,6 @@ public void save() {
        .getKey();
    }
   }
-
-  // public static List<Monster> all() {
-  //   String sql = "SELECT * FROM monsters";
-  //   try(Connection con = DB.sql2o.open()) {
-  //     return con.createQuery(sql).executeAndFetch(Monster.class);
-  //   }
-  // }
-
-//   public static Monster find(int id) {
-//   try(Connection con = DB.sql2o.open()) {
-//     String sql = "SELECT * FROM monsters where id=:id";
-//     Monster monster = con.createQuery(sql)
-//       .addParameter("id", id)
-//       .executeAndFetchFirst(Monster.class);
-//     return monster;
-//   }
-// }
 
   public boolean isAlive() {
     if (foodLevel <= MIN_ALL_LEVELS ||

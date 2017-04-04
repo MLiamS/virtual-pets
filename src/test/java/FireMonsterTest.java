@@ -255,7 +255,7 @@ public class FireMonsterTest {
 
 
   @Test
-  public void timer_haltsAfterFireMonsterDies() {
+    public void timer_haltsAfterFireMonsterDies() {
     FireMonster testFireMonster = new FireMonster("Bubbles", 1);
     testFireMonster.startTimer();
     try {
@@ -264,5 +264,26 @@ public class FireMonsterTest {
     assertFalse(testFireMonster.isAlive());
     assertTrue(testFireMonster.getFoodLevel() >= 0);
   }
+
+  @Test
+    public void fireMonster_instantiatesWithHalfFullFireLevel(){
+    FireMonster testFireMonster = new FireMonster("Smokey", 1);
+    assertEquals(testFireMonster.getFireLevel(), (FireMonster.MAX_FIRE_LEVEL / 2));
+  }
+
+  @Test
+     public void kindling_increasesFireMonsterFireLevel(){
+     FireMonster testFireMonster = new FireMonster("Smokey", 1);
+     testFireMonster.kindling();
+     assertTrue(testFireMonster.getFireLevel() > (FireMonster.MAX_FIRE_LEVEL / 2));
+ }
+
+  @Test(expected = UnsupportedOperationException.class)
+    public void kindling_throwsExceptionIfFireLevelIsAtMaxValue(){
+    FireMonster testFireMonster = new FireMonster("Smokey", 1);
+    for(int i = FireMonster.MIN_ALL_LEVELS; i <=(FireMonster.MAX_FIRE_LEVEL); i++){
+    testFireMonster.kindling();
+ }
+}
 
 }
