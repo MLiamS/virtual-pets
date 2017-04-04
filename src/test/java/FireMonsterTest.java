@@ -283,7 +283,7 @@ public class FireMonsterTest {
     FireMonster testFireMonster = new FireMonster("Smokey", 1);
     for(int i = FireMonster.MIN_ALL_LEVELS; i <=(FireMonster.MAX_FIRE_LEVEL); i++){
     testFireMonster.kindling();
- }
-}
+   }
+  }
 
 }

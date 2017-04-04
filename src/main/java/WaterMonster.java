@@ -3,6 +3,8 @@ import org.sql2o.*;
 import java.util.List;
 
 public class WaterMonster extends Monster {
+  private int waterLevel;
+  public static final int MAX_WATER_LEVEL = 8;
 
   public WaterMonster(String name, int personId) {
     this.name = name;
@@ -10,6 +12,7 @@ public class WaterMonster extends Monster {
     playLevel = MAX_PLAY_LEVEL / 2;
     sleepLevel = MAX_SLEEP_LEVEL / 2;
     foodLevel = MAX_FOOD_LEVEL / 2;
+    waterLevel = MAX_WATER_LEVEL / 2;
     timer = new Timer();
   }
   public static List<WaterMonster> all() {
@@ -26,7 +29,28 @@ public class WaterMonster extends Monster {
       .addParameter("id", id)
       .executeAndFetchFirst(WaterMonster.class);
     return monster;
+    }
   }
+
+  public int getWaterLevel(){
+    return waterLevel;
+  }
+
+  public void water() {
+     if (waterLevel >= MAX_WATER_LEVEL){
+      throw new UnsupportedOperationException("You cannot water your pet any more!");
+  }
+  waterLevel++;
 }
+
+@Override
+ public void depleteLevels(){
+   if (isAlive()){
+     playLevel--;
+     foodLevel--;
+     sleepLevel--;
+     waterLevel--;
+   }
+ }
 
 }
