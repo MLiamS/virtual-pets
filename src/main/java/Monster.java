@@ -17,6 +17,7 @@ public abstract class Monster {
   public Timestamp lastSlept;
   public Timestamp lastAte;
   public Timestamp lastPlayed;
+  public String type;
   public Timer timer;
 
   public static final int MAX_FOOD_LEVEL = 3;
@@ -78,10 +79,11 @@ public Timestamp getLastPlayed(){
 
 public void save() {
    try(Connection con = DB.sql2o.open()) {
-     String sql = "INSERT INTO monsters (name, personid, birthday) VALUES (:name, :personId, now())";
+     String sql = "INSERT INTO monsters (name, personid, birthday, type) VALUES (:name, :personId, now(), :type)";
      this.id = (int) con.createQuery(sql, true)
        .addParameter("name", this.name)
        .addParameter("personId", this.personId)
+       .addParameter("type",this.type)
        .executeUpdate()
        .getKey();
    }
