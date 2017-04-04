@@ -44,7 +44,10 @@ CREATE TABLE monsters (
     birthday timestamp without time zone,
     lastate timestamp without time zone,
     lastslept timestamp without time zone,
-    lastplayed timestamp without time zone
+    lastplayed timestamp without time zone,
+    type character varying,
+    lastwater timestamp without time zone,
+    lastkindling timestamp without time zone
 );
 
 
@@ -123,10 +126,10 @@ ALTER TABLE ONLY persons ALTER COLUMN id SET DEFAULT nextval('persons_id_seq'::r
 -- Data for Name: monsters; Type: TABLE DATA; Schema: public; Owner: Guest
 --
 
-COPY monsters (id, name, personid, birthday, lastate, lastslept, lastplayed) FROM stdin;
-1	Bubbles	1	2017-04-03 15:34:08.174072	2017-04-03 15:34:08.174072	2017-04-03 15:34:08.174072	2017-04-03 15:34:08.174072
-2	Beatrice	1	2016-08-11 00:00:00	2016-08-11 00:00:00	2016-08-11 00:00:00	2016-08-11 00:00:00
-3	Samson	1	2016-07-11 00:00:00	2016-07-11 00:00:00	2016-07-11 00:00:00	2016-07-11 00:00:00
+COPY monsters (id, name, personid, birthday, lastate, lastslept, lastplayed, type, lastwater, lastkindling) FROM stdin;
+1	Bubbles	1	2017-04-03 15:34:08.174072	2017-04-03 15:34:08.174072	2017-04-03 15:34:08.174072	2017-04-03 15:34:08.174072	\N	\N	\N
+2	Beatrice	1	2016-08-11 00:00:00	2016-08-11 00:00:00	2016-08-11 00:00:00	2016-08-11 00:00:00	\N	\N	\N
+3	Samson	1	2016-07-11 00:00:00	2016-07-11 00:00:00	2016-07-11 00:00:00	2016-07-11 00:00:00	\N	\N	\N
 \.
 
 
